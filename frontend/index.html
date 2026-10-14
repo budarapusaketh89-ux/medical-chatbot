@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>MedQuery — Medical Assistant</title>
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Outfit:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+  <div class="logo">
+    <div class="logo-mark">
+
+      <svg viewBox="0 0 20 20">
+        <path
+          d="M10 2v16M6 6h8M6 10h8M7 14h6"
+          stroke="white"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          fill="none"
+        />
+      </svg>
+
+    </div>
+
+    <span class="logo-text">
+      Med<em>Query</em>
+    </span>
+  </div>
+
+  <div class="status-pill">
+
+    <div
+      class="status-dot"
+      id="status-dot">
+    </div>
+
+    <span id="status-label">
+      Connecting...
+    </span>
+
+  </div>
+
+  <button
+    class="logout-btn"
+    onclick="logout()">
+
+    Logout
+
+  </button>
+
+</header>
+
+
+<!-- MAIN -->
+<main class="main-layout">
+
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <button
+      class="new-chat-btn">
+
+      + New Chat
+
+    </button>
+
+
+    <button
+      class="upload-report-btn"
+      id="upload-report-btn">
+
+      📄 Upload Report
+
+    </button>
+
+
+    <input
+      type="file"
+      id="report-file"
+      accept=".pdf"
+      hidden
+    >
+
+
+    <h3 class="sidebar-title">
+      💬 Chats
+    </h3>
+
+    <div
+      class="conversation-list"
+      id="conversation-list">
+
+    </div>
+
+
+    <h3 class="sidebar-title">
+        📄Reports
+    </h3>
+
+    <div
+      class="report-list"
+      id="report-list">
+
+    </div>
+
+  </div>
+
+
+  <!-- CHAT SECTION -->
+  <div class="chat-section">
+
+    <div
+      class="chat-window"
+      id="chat-window">
+
+      <!-- Welcome -->
+      <div
+        class="welcome"
+        id="welcome-msg">
+
+        <div class="welcome-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48
+                     10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+          </svg>
+
+        </div>
+
+        <h2>
+          Ask a medical question
+        </h2>
+
+        <p>
+          Get clear, knowledge-base answers on symptoms,
+          treatments, causes, and more.
+        </p>
+
+
+        <div class="sample-chips">
+
+          <button
+            class="chip"
+            onclick="sendSample('What are the symptoms of Alzheimer\'s disease?')">
+
+            Symptoms of Alzheimer's?
+
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="sendSample('How is type 2 diabetes treated?')">
+
+            Treating type 2 diabetes
+
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="sendSample('What causes hypertension?')">
+
+            Causes of hypertension
+
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="sendSample('How can I prevent heart disease?')">
+
+            Preventing heart disease
+
+          </button>
+
+
+          <button
+            class="chip"
+            onclick="sendSample('What is the prognosis for breast cancer?')">
+
+            Breast cancer prognosis
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <p class="disclaimer">
+
+      For informational purposes only —
+      not a substitute for professional medical advice.
+
+    </p>
+
+
+    <div class="input-row">
+
+      <textarea
+        id="question-input"
+        placeholder="Ask a medical question…"
+        rows="1">
+
+      </textarea>
+
+
+      <button id="send-btn">
+
+        <svg viewBox="0 0 20 20">
+
+          <path
+            d="M2.94 2.06l16 8-16 8V12l11.5-2L2.94 8V2.06z"/>
+
+        </svg>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer>
+
+  MedQuery · Powered by BioBERT + MiniLM + FAISS
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

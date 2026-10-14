@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Medical Chatbot local files
+backend/uploads/
+models/model.safetensors
+.gitignore.backup

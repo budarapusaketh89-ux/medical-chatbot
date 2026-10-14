@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - MedQuery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="auth-container">
+    <h1>MedQuery</h1>
+    <p style="text-align:center;margin-bottom:20px;color:#5C5952;">
+    Sign in to continue
+    </p>
+
+    <input
+        type="text"
+        id="login"
+        placeholder="Email or Username"
+    >
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Password"
+    >
+
+    <button onclick="handleLogin()">
+        Login
+    </button>
+
+    <p>
+        Don't have an account?
+        <a href="register.html">Register</a>
+    </p>
+</div>
+
+<script src="auth.js"></script>
+
+<script>
+async function handleLogin() {
+
+    const login =
+        document.getElementById("login").value;
+
+    const password =
+        document.getElementById("password").value;
+
+    const result =
+        await loginUser(login, password);
+
+    if(result.access_token){
+
+        localStorage.setItem(
+            "token",
+            result.access_token
+        );
+
+        window.location.href =
+            "index.html";
+
+    } else {
+
+        alert(
+            result.detail ||
+            "Login failed"
+        );
+
+    }
+}
+</script>
+
+</body>
+</html>
